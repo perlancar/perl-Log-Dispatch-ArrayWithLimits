@@ -18,6 +18,7 @@ sub new {
         say "$self->{array}";
         $self->{array} = \@{"$self->{array}"};
     }
+    $self->{max_elems} = $args{max_elems} // undef;
     bless $self, $class;
     $self->_basic_init(%args);
     $self;
