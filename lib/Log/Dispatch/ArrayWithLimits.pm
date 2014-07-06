@@ -52,9 +52,24 @@ sub log_message {
 
 =head1 DESCRIPTION
 
-This module functions similarly to L<Log::Dispatch::Array>, except that only the
-messages are stored and there are some limits applied (currently only the
-maximum number of elements in the array).
+This module functions similarly to L<Log::Dispatch::Array>, with a few
+differences:
+
+=over
+
+=item * only the messages (strings) are stored
+
+=item * allow specifying array variable name (e.g. "My::array" instead of \@My:array)
+
+This makes it possible to use in L<Log::Log4perl> configuration, which is a text
+file.
+
+=item * can apply some limits
+
+Currently only max_elems (the maximum number of elements in the array) is
+available. Future limits will be added (see L</"TODO">).
+
+=back
 
 Logging to an in-process array can be useful when debugging/testing, or when you
 want to let users of your program connect to your program to request viewing the
