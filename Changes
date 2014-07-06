@@ -1,5 +1,14 @@
 Revision history for Log-Dispatch-ArrayWithLimits
 
+0.02    2014-07-06 (SHARYANTO)
+
+        - [Bugfix] Typo. First version didn't work, derp.
+
+        - Allow specifying array variable name (e.g. 'My::array' instead of
+          \@My::Array). This makes it possible to use this module from Log4perl
+          configuration, which is a text file.
+
+
 0.01    2014-07-06 (SHARYANTO)
 
         - First version.
