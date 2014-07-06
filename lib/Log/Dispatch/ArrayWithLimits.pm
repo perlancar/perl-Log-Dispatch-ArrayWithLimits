@@ -13,6 +13,11 @@ sub new {
     my ($class, %args) = @_;
     my $self = {};
     $self->{array} = $args{array} // [];
+    if (!ref($self->{array})) {
+        no strict 'refs';
+        say "$self->{array}";
+        $self->{array} = \@{"$self->{array}"};
+    }
     bless $self, $class;
     $self->_basic_init(%args);
     $self;
@@ -38,7 +43,7 @@ sub log_message {
 
  my $file = Log::Dispatch::ArrayWithLimits(
      min_level     => 'info',
-     array         => $ary,    # default: []
+     array         => $ary,    # default: [], you can always refer by name e.g. 'My::array' to refer to @My::array
      max_elems     => 100,     # defaults unlimited
  );
 
@@ -62,7 +67,10 @@ ogs being produced.
 
 Constructor. This method takes a hash of parameters. The following options are
 valid: C<min_level> and C<max_level> (see L<Log::Dispatch> documentation);
-C<array>, C<max_elems>.
+C<array> (a reference to an array, or if value is string, will be taken as name
+of array variable; this is so this module can be used/configured e.g. by
+L<Log::Log4perl> because configuration is specified via a text file),
+C<max_elems>.
 
 =head2 log_message(message => STR)
 
