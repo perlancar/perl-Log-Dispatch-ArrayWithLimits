@@ -22,7 +22,7 @@ sub log_message {
     my $self = shift;
     my %args = @_;
 
-    push @{$self->{_array}}, $args{message};
+    push @{$self->{array}}, $args{message};
 
     if (defined($self->{max_elems}) && @{$self->{array}} > $self->{max_elems}) {
         splice(@{$self->{array}}, 0, @{$self->{array}}-$self->{max_elems});
