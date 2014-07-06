@@ -31,7 +31,11 @@ sub log_message {
     push @{$self->{array}}, $args{message};
 
     if (defined($self->{max_elems}) && @{$self->{array}} > $self->{max_elems}) {
-        splice(@{$self->{array}}, 0, @{$self->{array}}-$self->{max_elems});
+        # splice() is not supported for threads::shared-array, so we use
+        # repeated shift
+        while (@{$self->{array}} > $self->{max_elems}) {
+            shift @{$self->{array}};
+        }
     }
 }
 
