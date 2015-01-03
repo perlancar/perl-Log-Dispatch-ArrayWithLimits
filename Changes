@@ -1,5 +1,12 @@
 Revision history for Log-Dispatch-ArrayWithLimits
 
+0.04    2015-01-03 (PERLANCAR)
+
+	- No functional changes.
+
+	- Rebuild (Generate TODO.md).
+
+
 0.03    2014-07-06 (SHARYANTO)
 
         - [Bugfix] max_elems didn't work because I forgot to set object
