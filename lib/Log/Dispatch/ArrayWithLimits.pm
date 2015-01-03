@@ -72,7 +72,7 @@ file.
 =item * can apply some limits
 
 Currently only max_elems (the maximum number of elements in the array) is
-available. Future limits will be added (see L</"TODO">).
+available. Future limits will be added.
 
 =back
 
@@ -97,13 +97,6 @@ C<max_elems>.
 Send a message to the appropriate output. Generally this shouldn't be called
 directly but should be called through the C<log()> method (in
 LLog::Dispatch::Output>).
-
-
-=head1 TODO
-
-max_total_len
-
-max_age
 
 
 =head1 SEE ALSO
